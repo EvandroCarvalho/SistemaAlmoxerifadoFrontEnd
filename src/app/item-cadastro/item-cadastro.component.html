@@ -1,5 +1,35 @@
 <div class="ui-g">
+  <form #frm='ngForm' (ngSubmit)="adicionar(frm)" >
+    <div class="ui-g-12">
+      <h1>Gestão de patrimonio</h1>
+    </div>
+    <div class="ui-g-6 ui-fluid">
+      <label for="">Etiqueta</label>
+      <p-inputMask name="tag" mask="aa9999" ngModel [required] = 'true'></p-inputMask>
+    </div>
+
+    <div class="ui-g-6 ui-fluid">
+      <label for="">Data da aquisição</label>
+      <p-calendar name="dateAcquisition" dateFormat="dd/MM/yy" ngModel [required]='true'></p-calendar>
+    </div>
+
+    <div class="ui-g-12 ui-fluid">
+      <label for="">Descrição</label>
+      <input pInputText name="description" ngModel [required]='true' />
+    </div>
+
+    <div class="ui-g-12">
+    <button pButton type="submit" label="Adicionar" [disabled]='frm.invalid'></button>
+    </div>
+  </form>
+</div>
+
+<div class="ui-g">
+
+
   <div class="ui-g-12">
+
+
     <p-dataTable [value]="itens">
       <p-column field="tag" header="Etiqueta"></p-column>
       <p-column field="description" header="Descrição"></p-column>
@@ -9,5 +39,9 @@
         </ng-template>
       </p-column>
     </p-dataTable>
+
+
   </div>
+
+
 </div>
